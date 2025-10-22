@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>端端的每日运势机</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Ma Shan Zheng', cursive;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png'),
+                  linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fbc2eb;
+    }
+
+    #fortune {
+      font-size: 1.8em;
+      margin: 30px;
+      max-width: 80%;
+      min-height: 60px;
+      text-shadow: 0 0 5px #000;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #a6c1ee;
+      font-weight: bold;
+      box-shadow: 0 0 15px #fbc2eb;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✨ 端端的每日运势机 ✨</h1>
+  <div id="fortune">点击按钮，看看今天的魔法运势吧～</div>
+  <button onclick="showFortune()">🌙 今日运势 🌙</button>
+
+  <!-- 星星装饰 -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.animationDelay = Math.random() * 3 + 's';
+      document.body.appendChild(s);
+    }
+
+    const fortunes = [
+      "今天适合喝奶茶+亲你一下，甜度超标！",
+      "宇宙提示：今天端端无论做什么都会被夸可爱！",
+      "今日幸运色：粉色；幸运事：被你偷偷喜欢。",
+      "月亮说：端端今天不开心是不被允许的！",
+      "今日运势：100%会收到一句‘我爱你’（来自我）。",
+      "魔法少女端端，今天请查收一份好心情buff！",
+      "星星排盘：今天适合撒娇、赖床、被你抱紧。",
+      "今日禁忌：不许皱眉，只许嘟嘴让我亲。"
+    ];
+
+    function showFortune() {
+      const f = fortunes[Math.floor(Math.random() * fortunes.length)];
+      document.getElementById('fortune').textContent = f;
+    }
+  </script>
+
+</body>
+</html>
+
